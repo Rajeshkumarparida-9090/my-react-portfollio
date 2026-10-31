@@ -1,85 +1,14 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiExternalLink, FiGithub, FiLayers } from 'react-icons/fi'
+import { FiLayers } from 'react-icons/fi'
+import { projects } from '../data/projects'
 
 const categories = ['All', 'React.js', 'Full Stack', 'UI / HTML']
 
-const projects = [
-  {
-    title: 'HRMS',
-    category: 'React.js',
-    company: 'Oasys Tech Solutions Pvt. Ltd.',
-    desc: 'Internal HR management portal covering attendance tracking, leave management, grievance handling, automated salary processing, and birthday/anniversary tracking — fully dynamic React modules with API-driven workflows.',
-    tech: ['React.js', 'Redux Saga', 'Reactstrap', 'Bootstrap 4', 'Laravel API'],
-    color: '#00d4ff',
-    emoji: '🏢',
-  },
-  {
-    title: 'RITES (IRCTC)',
-    category: 'React.js',
-    company: 'Oasys Tech Solutions Pvt. Ltd.',
-    desc: 'Workshop inspection and management system for Modern Coach Factory, Raebareli. Records and monitors railway coach manufacturing quality metrics — paint quality, bogies, doors, windows and measurements.',
-    tech: ['React.js', 'Redux Toolkit', 'MUI', 'Bootstrap 4', 'MongoDB API'],
-    color: '#f59e0b',
-    emoji: '🚂',
-  },
-  {
-    title: 'OGB (Odisha Gramin Bank)',
-    category: 'React.js',
-    company: 'Oasys Tech Solutions Pvt. Ltd.',
-    desc: 'Banking platform providing EMI calculators, tender information, event updates, and banking-related services for users of Odisha Gramin Bank.',
-    tech: ['React.js', 'Redux Toolkit', 'MUI', 'Bootstrap 4', 'REST API'],
-    color: '#10b981',
-    emoji: '🏦',
-  },
-  {
-    title: 'FrequnC',
-    category: 'React.js',
-    company: 'Loop IT Methods Pvt. Ltd.',
-    desc: 'Event management platform covering marriage, dance and other events. Supports vendor, venue and artist user roles plus ticket sales. Built pages, integrated backend APIs, implemented authentication and lazy loading.',
-    tech: ['React.js', 'MUI', 'Bootstrap 4', 'Authentication', 'Lazy Loading'],
-    color: '#ec4899',
-    emoji: '🎪',
-  },
-  {
-    title: 'Spotmink',
-    category: 'React.js',
-    company: 'Assystant Pvt. Ltd.',
-    desc: 'Real estate platform for plotting and selling land. Shows plot availability, sale status and dimensions with an integrated in-app code editor for agents.',
-    tech: ['React.js', 'MUI', 'Bootstrap 4', 'Python API', 'Code Editor'],
-    color: '#7c3aed',
-    emoji: '🏡',
-  },
-  {
-    title: 'Awtomated',
-    category: 'Full Stack',
-    company: 'Assystant Pvt. Ltd.',
-    desc: 'Exam question and language translation platform (e.g. German to English) that reports translation accuracy percentage. Built forms and integrated with the Python backend.',
-    tech: ['React.js', 'MUI', 'Bootstrap 4', 'Python Backend', 'Forms'],
-    color: '#6366f1',
-    emoji: '🤖',
-  },
-  {
-    title: 'SpotX',
-    category: 'React.js',
-    company: 'Assystant Pvt. Ltd.',
-    desc: 'Custom npm package created and published to npm registry. Package development covering utility functions and component distribution workflow.',
-    tech: ['React.js', 'NPM', 'Webpack', 'Babel', 'Package Publishing'],
-    color: '#ef4444',
-    emoji: '📦',
-  },
-  {
-    title: 'Milan Palace (Hotel)',
-    category: 'UI / HTML',
-    company: 'Corporateranking Pvt. Ltd.',
-    desc: 'Hotel booking website with responsive frontend, room availability display and pricing interfaces built from UI requirements using plain HTML/CSS/JS.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 4', 'Responsive'],
-    color: '#f97316',
-    emoji: '🏨',
-  },
-]
-
 function ProjectCard({ project, i }) {
+  const navigate = useNavigate()
+
   return (
     <motion.div
       layout
@@ -110,14 +39,15 @@ function ProjectCard({ project, i }) {
         />
         <span className="text-6xl z-10 group-hover:scale-110 transition-transform duration-300">{project.emoji}</span>
 
-        {/* Overlay links */}
+        {/* Overlay link */}
         <div className="project-overlay absolute inset-0 z-20 bg-black/55 backdrop-blur-sm opacity-0 transition-opacity duration-300 flex items-center justify-center gap-3">
-          <motion.span
+          <motion.button
             whileHover={{ scale: 1.08 }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-xs font-semibold border border-white/20 bg-white/10"
+            onClick={() => navigate(`/projects/${project.id}`)}
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-xs font-semibold border border-white/20 bg-white/10 cursor-pointer"
           >
             <FiLayers size={13} /> View Details
-          </motion.span>
+          </motion.button>
         </div>
       </div>
 
