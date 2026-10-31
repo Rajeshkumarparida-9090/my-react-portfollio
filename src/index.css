@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #e5e7eb;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+
+  .section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #7c3aed);
+    margin: 0 auto 3rem;
+    border-radius: 2px;
+  }
+}
+
+/* Animated background orbs */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Typewriter cursor */
+.typewriter::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: #00d4ff;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Skill tag hover */
+.skill-tag:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25);
+}
+
+/* Project card hover */
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Scrollbar thin */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+/* Shared input style */
+.input-field {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f3f4f6;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.input-field::placeholder {
+  color: #4b5563;
+}
+.input-field:focus {
+  border-color: rgba(0,212,255,0.4);
+  background: rgba(0,212,255,0.03);
+}
