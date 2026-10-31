@@ -90,7 +90,7 @@ const containerVariants = {
 
 export default function About() {
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8">
+    <div className="py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}

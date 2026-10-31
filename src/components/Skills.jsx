@@ -113,7 +113,7 @@ function SkillBar({ skill, accent }) {
 
 export default function Skills() {
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: 'rgba(255,255,255,0.008)' }}>
+    <div className="py-8 px-4 sm:px-6 lg:px-8" style={{ background: 'rgba(255,255,255,0.008)' }}>
       <div className="max-w-7xl mx-auto">
 
         <motion.div
